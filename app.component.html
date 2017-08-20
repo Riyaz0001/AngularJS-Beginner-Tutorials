@@ -1,0 +1,146 @@
+<html lang="en" ng-app="myApps">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">    
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+    <script src="lib/app.component.js"></script>
+    <title>My Angular JS App</title>
+</head>
+
+<body style="margin:20px">
+    <!-- <div ng-init=" person = [
+    {name: 'Riyaz', type:'Developer', phone:'+8801944553321'},
+    {name: 'MD Riyaz', type:'Developer', phone:'+8801749999120'},
+    {name: 'MD Riyaz Uddin', type:'Developer', phone:'+8801944553321'}
+    ] "></div>
+
+    <ul>
+        <li ng-repeat="x in person">{{ x.name }}, {{ x.type }}, {{ x.phone }}</li>
+    </ul> -->
+    <!-- <div ng-controller="myController">
+        <p> My Name is {{ name }} </p>
+    </div>
+
+    <script>
+        var app = angular.module('myApps', []);
+
+        app.controller('myController', ['$scope', function($scope) {
+            $scope.name = 'Riyaz'; 
+        }]);
+
+    </script> -->
+    <!-- <div>
+        <h2>Angular Driective ng-repeat example:</h2>
+        <ul>
+            <li ng-repeat="x in viewPersonDetails">
+                {{ x.name }}
+            </li>
+        </ul>
+    </div> -->
+
+    <div ng-controller="myCtrl" ng-init="uname='MD Riyaz'">
+        <h2>Welcome to My Second controller Angular Template.</h2>
+        <input type="text" ng-model="uname"/>
+        <p> {{ welcomeMsg + ' ' + uname }} </p>
+        <hr>
+      
+      
+        <h3>This is Person Object, Bind this Controller</h3>
+        <h4>Initialize with curly brackets {.{ }} binding expression</h4>
+        <ul>
+            <li><strong>Name: </strong> {{ me.name }}</li>
+            <li><strong>Age: </strong> {{ me.age }}</li>
+            <li><strong>Eye Color: </strong> {{ me.eyeColor }}</li>
+            <li><strong>Job Type: </strong> {{ me.type }}</li>
+        </ul>
+        
+        <h4>Initialize with <span style="color:coral">ng-bind</span> Driective</h4>
+        <ul ng-show="val1">
+            <li><strong>Name: </strong> <span data-ng-bind="me.name"></span></li>
+            <li><strong>Age: </strong> <span data-ng-bind="me.age"></span></li>
+            <li><strong>Eye Color: </strong> <span data-ng-bind="me.eyeColor"></span></li>
+            <li><strong>Job Type: </strong> <span data-ng-bind="me.type"></span></li>
+        </ul>
+        <hr>
+        <h2>Angular Driective ng-repeat example:</h2>
+        <ul>
+            <li ng-repeat="x in viewPersonDetails">
+                {{ x }}
+            </li>
+        </ul>
+        <hr>
+      
+      
+
+        <h2>Angular Driective ng-repeat example:</h2>
+        <h3>MRU Studio Employee List: </h3>
+        <table class="table table-hover table-inverse">
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Employee Name</th>
+                    <th>Employee Position</th>
+                    <th>Employee Salary</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="y in mruStudioEmployees | orderBy: '' :true ">
+                    <td>{{ y.number }}</td>
+                    <td>{{ y.name }}</td>
+                    <td>{{ y.position }}</td>
+                    <td>{{ y.salary | currency:'৳':number }}</td>
+                </tr>
+            </tbody>
+        </table>
+        <hr>
+
+        <h3>MRU Studio Prodect List</h3>
+        <ol>
+            <li ng-repeat="z in mruStudioProdectList">
+                <ul>
+                    <li>
+                        <img style="width:100px;height:100px; border:1px solid #ccc;" 
+                            ng-src="{{ z.icon }}" 
+                            alt="{{ z.name }}">
+                    </li>
+                    <li><strong>Name: </strong> <span ng-bind="z.name"></span></li>
+                    <li><strong>Type: </strong> <span ng-bind="z.prodectType"></span></li>
+                    <li><strong>Release: </strong> <span ng-bind="z.release"></span></li>
+                    <li><strong>Support OS:</strong>
+                        <ul ng-repeat="supportDeOS in z.supportOS">
+                            <li ng-bind="supportDeOS.nameOfOS"></li>
+                        </ul>
+                    </li>
+                </ul>
+            </li>
+        </ol>
+        <hr>
+
+
+    </div>
+
+
+    <div ng-controller="viewUserDetails">
+        <h2>Welcome to My First controller Angular Template.</h2>            
+        <h3>Please Input Your Basic Info Like Name, Age, Phone & more </h3>
+        Your Name: <input type="text" ng-model="yourname" />
+        <br/>
+        Age: <input type="number" ng-model="yourage" />
+        <br/>
+        Phone: <input type="tel" ng-model="yourphone" />
+        <br/>
+        Your City: <input type="text" ng-model="yourcity" />
+        <br/>
+        Your Country: <input type="text" ng-model="yourcountry" />
+        <br>
+        <br>
+
+        Details: {{ viewDetails() }}
+    </div>
+</body>
+
+</html>

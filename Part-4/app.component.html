@@ -1,0 +1,43 @@
+<html lang="en" ng-app="myApps">
+    
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">    
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
+        <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+        <script src="js/app.component.js"></script>
+        <script src="js/myFilter.component.js"></script>
+        <title>My Angular JS App</title>
+    </head>
+    
+    <body style="margin:20px">
+        <div ng-controller="myCtrl">
+            <h1>Angular JS Part - 4</h1><hr>
+
+            <h3>MRU Studio Employee List: </h3><br>
+            <h5>Search Employees Name: <input type="text" ng-model="searchEmployee"></h5><br><br>
+            
+            <table class="table table-hover table-inverse">
+                <thead>
+                    <tr>
+                        <th>Activenes</th>
+                        <th>Employee Name</th>
+                        <th>Employee Position</th>
+                        <th>Employee Salary</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="y in mruStudioEmployees | filter: searchEmployee">
+                        <td>{{ y.number | activenes }}</td>
+                        <td>{{ y.name }}</td>
+                        <td>{{ y.position | uppercase }}</td>
+                        <td>{{ y.salary | currency:'৳' :number }}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </body>
+    
+    </html>
